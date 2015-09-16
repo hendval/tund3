@@ -1,10 +1,9 @@
 <html>
 <head>
-	<title>HV Page</title>
+	<title><?php echo $page_title ?></title>
 	<meta charset="UTF-8">
 </head>
 <body>
-Header
 <?php
 require_once("menu.php");
 ?>

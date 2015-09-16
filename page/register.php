@@ -38,6 +38,10 @@
 
 
 ?>
+<?php
+	$page_title = "Registreerimine";
+	$page_file_name = "register.php";
+?>
 <?php require_once("../header.php"); ?>
 <html>
 <head>
