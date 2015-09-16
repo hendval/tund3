@@ -56,6 +56,6 @@
 			<?php echo $email_error; ?>
 			</form>
 	</center>
-<center><a href="registreeri.php">Pole kasutajat? Registreeri siin!</a></center>
+<center><a href="register.php">Pole kasutajat? Registreeri siin!</a></center>
 </body>
 </html>
