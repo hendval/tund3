@@ -1,3 +1,10 @@
+<html>
+<head>
+	<title>HV Page</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+Header
 <?php
-// päis
+require_once("menu.php");
 ?>

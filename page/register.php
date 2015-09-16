@@ -38,13 +38,13 @@
 
 
 ?>
+<?php require_once("../header.php"); ?>
 <html>
 <head>
 	<title>HV Register page</title>
 	<meta charset="UTF-8">
 </head>
 <body>
-	<center>
 		<h1>Registreeri</h1>
 			<form action="register.php" method="post">
 				Kasutajanimi:<br>
@@ -56,7 +56,7 @@
 				<input type="submit" value="Registreeri"><br><br>
 				<?php echo $password_repeat_error; ?><?php echo $password_error; ?><?php echo $email_error; ?>
 			</form>
-	</center>
-<center><a href="login.php">Kasutaja olemas? Logi sisse siin!</a></center>
+<a href="login.php">Kasutaja olemas? Logi sisse siin!</a>
 </body>
 </html>
+<?php require_once("../footer.php"); ?>
