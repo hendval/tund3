@@ -3,7 +3,11 @@
 	// LOGIN.PHP
 	$email_error = "";
 	$password_error = "";
-	// echo $_POST["email"];
+
+	// muutujad andmebaasi väärtuste jaoks
+	$email = "";
+	$password = "";
+	$password_repeat = "";	
 
 	// kontrollime, et keegi vajutas input nuppu
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -12,15 +16,18 @@
 		
 		//vajutas login nuppu
 		if(isset($_POST["login"])){
-		
+			echo "vajutas login nuppu!";
+			
+			
 			if(empty($_POST["email"]))  {
-				$email_error = "Email on kohustuslik!";
-				
+				$email_error = "VEATEADE: Email on kohustuslik!";
+			} else {
+				$email = test_input($_POST["email"]);
 				
 			}
 			
 			if(empty($_POST["password"])) {
-				$password_error = "Parool on kohustuslik!";
+				$password_error = "VEATEADE: Parool on kohustuslik!";
 			} else {
 				
 				//kui oleme siia jõudnud siis parool ei ole tühi
@@ -32,10 +39,26 @@
 				}
 			}
 			
+			if($email_error == "" && $password_error == ""){
+				
+				echo " kontrollin sisselogimist ".$email." ja parool";
+				
+			}
+			
 		}
 		
 		
 		
+	}
+	
+	function test_input($data) {
+		// võtab ära tühikud, enterid, tabid
+		$data = trim($data);
+		// tagurpidi kaldkriipsud
+		$data = stripslashes($data);
+		// teeb htmli tekstiks
+		$data = htmlspecialchars($data);
+		return $data;
 	}
 ?>
 <?php
@@ -52,12 +75,10 @@
 		<h1>Logi sisse</h1>
 			<form action="login.php" method="post">
 				Kasutajanimi:<br>
-				<input name="email" type="email" placeholder="E-post"><br>
+				<input name="email" type="email" placeholder="E-post" value="<?php echo $email; ?>"> <?php echo $email_error; ?><br>
 				Parool:<br>
-				<input name="password" type="password" placeholder="Parool"><br><br>
-				<input name="login" type="submit" value="Logi sisse"><br><br>
-				<?php echo $password_error; ?>
-			<?php echo $email_error; ?>
+				<input name="password" type="password" placeholder="Parool"> <?php echo $password_error; ?><br><br>
+				<input name="login" type="submit" value="Logi sisse"><br>
 			</form>
 <a href="register.php">Pole kasutajat? Registreeri siin!</a>
 </body>
